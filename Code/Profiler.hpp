@@ -37,7 +37,7 @@ class ProfilerStats{
 
         char const* sectionName;
         int count;
-        double totalTIme;
+        double totalTime;
         double minTime;
         double maxTime;
         double avgTime;

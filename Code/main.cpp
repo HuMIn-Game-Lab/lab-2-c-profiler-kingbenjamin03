@@ -26,8 +26,25 @@ int main()
     // delete trs2;
     
     Profiler* p = new Profiler();
+    p->EnterSection("main");
+    vector<int> test;
+    for(int i = 0; i < 1000; i++){
+        p->EnterSection("iTest");
+        test.push_back(i);
+        for(int j = 0; j < 1000; j++){
+            p->EnterSection("jTest");
+            test.push_back(j);
+            p->ExitSection("jTest");
+        }
+        p->ExitSection("test");
+    }
+    p->ExitSection("main");
     p->printStats();
     delete p;
+    
+
+
+
 
 
 

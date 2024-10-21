@@ -1,33 +1,46 @@
 #include "Profiler.hpp"
 #include "time.hpp"
 #include <iostream>
+#include <cstdlib>
+#include <vector>
+#include <map>
 using namespace std;
 
 Profiler* Profiler::gProfiler = nullptr;
 
-// TimeRecordStart::TimeRecordStart(char const* sectionName)
-// {
-//     std::cout << "TimeRecordStart constructor" << std::endl;
-//     sectionName = sectionName;
-//     secondsAtStart = GetCurrentTimeSecond();
-// }
+
 TimeRecordStart::~TimeRecordStart()
 {
-    std::cout << "TimeRecordStart destructor" << std::endl;
+
 }
+
+
 TimeRecordStop::TimeRecordStop(char const* sectionName, double secondsAtStop)
 {
-    std::cout << "TimeRecordStop constructor" << std::endl;
+    this->sectionName = sectionName;
+    this->elapsedTime = secondsAtStop;
 }
 TimeRecordStop::TimeRecordStop(char const* sectionName, double elapsedTime, int lineNumber, const char* fileName, const char* functionName)
 {
-    std::cout << "TimeRecordStop constructor" << std::endl;
-}
-TimeRecordStop::~TimeRecordStop()
-{
-    std::cout << "TimeRecordStop destructor" << std::endl;
-}
+    this->sectionName = sectionName;
+    this->elapsedTime = elapsedTime;
+    this->lineNumber = lineNumber;
+    this->fileName = fileName;
+    this->funcitonName = functionName;
 
+}
+TimeRecordStop::~TimeRecordStop(){}
+
+
+ProfilerStats::ProfilerStats(char const* sectionName)
+{
+    std::cout << "ProfilerStats constructor" << std::endl;
+    this->sectionName = sectionName;
+    count = 1;
+    totalTime = 0;
+    minTime = DBL_MAX;
+    maxTime = 0;
+}
 
 
 Profiler::Profiler(){
@@ -47,8 +60,8 @@ Profiler::~Profiler(){
 void Profiler::ReportSectionTime(char const* sectionName, double elapsedTime)
 {
     std::cout << "called ReportSectionTime" << std::endl;
-}
 
+}
 void Profiler::calculateStats()
 {
     std::cout << "called calculateStats" << std::endl;
@@ -64,7 +77,7 @@ void Profiler::ExitSection(char const* sectionName)
 {
 
     double secondsAtStop = GetCurrentTimeSecond();
-    TimeRecordStart const& currentSection = startTimes.back();
+    TimeRecordStart const& currentSection = startTimes.back(); //grabs the last section form vector of start times 
 
     #if defined (DEBUG_PROFILER)
         //verify the stack isnt empty
@@ -72,14 +85,32 @@ void Profiler::ExitSection(char const* sectionName)
     #endif
 
     double elapsedTime  = secondsAtStop - currentSection.secondsAtStart;
-    ReportSectionTime(sectionName, elapsedTime);
-    startTimes.pop_back();
+    TimeRecordStop stop = TimeRecordStop(sectionName, elapsedTime);
+    elapsedTimes.push_back(stop);
+    //ReportSectionTime(sectionName, elapsedTime);
+    if(stats.find(sectionName) == stats.end())
+    {
+        stats[sectionName] = new ProfilerStats(sectionName);
+
+    }
+    else{
+    stats[sectionName]->count++;
+    stats[sectionName]->totalTime += elapsedTime;
+    if(stats[sectionName]->minTime > elapsedTime || stats[sectionName]->minTime == 0)
+    {
+        stats[sectionName]->minTime = elapsedTime;
+    }
+    if(stats[sectionName]->maxTime < elapsedTime)
+    {
+        stats[sectionName]->maxTime = elapsedTime;
+    }
+    }
 }
 void Profiler::printStats()
 {
     cout<< "Profiler Stats:" << endl;
     for( auto& stat : stats)
     {
-        std::cout << "Section: " << stat.first << " Count: " << stat.second->count << " Total Time: " << stat.second->totalTIme << std::endl;
+        std::cout << "Section: " << stat.first << ", Count: " << stat.second->count << ", Total Time: " << stat.second->totalTime << std::endl;
     }
 }
