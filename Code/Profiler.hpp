@@ -6,7 +6,8 @@ using namespace std;
 
 class TimeRecordStart{
     public:
-        TimeRecordStart(char const* sectionName);
+            TimeRecordStart(const char* sectionName, double secondsAtStart)
+        : sectionName(sectionName), secondsAtStart(secondsAtStart) {}
         ~TimeRecordStart();
 
         char const* sectionName;
@@ -20,6 +21,7 @@ class TimeRecordStop{
         ~TimeRecordStop();
 
         char const* sectionName;
+        int callCount;
         double elapsedTime;
         int lineNumber;
         const char* fileName;
