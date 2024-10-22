@@ -14,8 +14,8 @@ pd.set_option('display.max_rows', 100)
 # Set the maximum column width
 pd.set_option('display.max_colwidth', 100)
 
-
-file_path = '/Users/benking/Documents/GitHub/lab-2-c-profiler-kingbenjamin03/Data/ProfilerStats.csv'  
+file_path = 'Data/ProfilerStats.csv'
+#file_path = '/Users/benking/Documents/GitHub/lab-2-c-profiler-kingbenjamin03/Data/ProfilerStats.csv'  
 data = pd.read_csv(file_path)
 #print(data.columns)  # Display the column names of the DataFrame
 data.plot(x='Section', y=' Avg Time', kind='bar', color='orange')
