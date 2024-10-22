@@ -16,6 +16,12 @@ Profiler* Profiler::gProfiler = nullptr;
 #define enterSection(sectionName) gProfiler->EnterSection(sectionName)
 //^^using macros to call the global profile, so that i can grab line numb, file name, and function name^^
 
+#define PrintStats() gProfiler->printStats()
+#define PrintStatsToCSV(fileName) gProfiler->printStatsToCSV(fileName)
+#define PrintStatsToJSON(fileName) gProfiler->printStatsToJSON(fileName)
+
+
+
 TimeRecordStart::~TimeRecordStart()
 {
 

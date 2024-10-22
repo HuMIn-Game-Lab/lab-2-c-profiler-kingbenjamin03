@@ -6,6 +6,9 @@ using namespace std;
 
 #define exitSection(sectionName) gProfiler->ExitSection(sectionName, __FILE__, __FUNCTION__, __LINE__)
 #define enterSection(sectionName) gProfiler->EnterSection(sectionName)
+#define PrintStats() gProfiler->printStats()
+#define PrintStatsToCSV(fileName) gProfiler->printStatsToCSV(fileName)
+#define PrintStatsToJSON(fileName) gProfiler->printStatsToJSON(fileName)
 
 class TimeRecordStart{
     public:

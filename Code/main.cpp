@@ -97,11 +97,11 @@ int main()
 
 test1(); //efficient bubble sort
 test2(); //ineffeicient bubble sort
-test3(); //test3 function
-test4(); //test4 function
-    gProfiler->printStats();
-    gProfiler->printStatsToCSV("ProfilerStats.csv");
-    gProfiler->printStatsToJSON("ProfilerStats.json");
+test3(); //test3 runs for 1 second
+test4(); //test4 interweaving test
+PrintStats();
+PrintStatsToCSV("ProfilerStats.csv");
+//PrintStatsToJSON("ProfilerStats.json");
 
     return 0;
 }
