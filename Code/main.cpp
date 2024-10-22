@@ -36,7 +36,9 @@ for(int i = 0; i < 1000; i++){
     gProfiler->ExitSection("BubbleSort");
 
 };
-
+void test2(){
+    
+}
 
 int main()
 {
