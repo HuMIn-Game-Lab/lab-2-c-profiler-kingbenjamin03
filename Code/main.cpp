@@ -67,12 +67,21 @@ enterSection("interweaveTest2");
     }
     exitSection("BubbleSort2");
 }
-
+void test3(){
+    for(int i = 0; i<10; i++){
+        enterSection("Test3");
+        cout<<i<<endl;
+        this_thread::sleep_for(chrono::milliseconds(100));
+        exitSection("Test3");
+    }
+    
+}
 int main()
 {
 
 test1(); //efficient bubble sort
 test2(); //ineffeicient bubble sort
+test3(); //test3 function
     gProfiler->printStats();
     gProfiler->printStatsToCSV("ProfilerStats.csv");
     gProfiler->printStatsToJSON("ProfilerStats.json");
