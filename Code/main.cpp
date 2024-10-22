@@ -76,12 +76,26 @@ void test3(){
     }
     
 }
+void test4()
+{
+    enterSection("Test4");
+    enterSection("Test4.1");
+    int x = 2;
+    if (x == 23) {
+        exitSection("Test4");
+    }
+    else {
+        exitSection("Test4.1");
+    }
+}
+
 int main()
 {
 
 test1(); //efficient bubble sort
 test2(); //ineffeicient bubble sort
 test3(); //test3 function
+test4(); //test4 function
     gProfiler->printStats();
     gProfiler->printStatsToCSV("ProfilerStats.csv");
     gProfiler->printStatsToJSON("ProfilerStats.json");

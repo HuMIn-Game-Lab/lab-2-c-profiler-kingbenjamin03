@@ -9,9 +9,12 @@
 #include "json.hpp"
 using namespace std;
 using namespace nlohmann;
+
 Profiler* Profiler::gProfiler = nullptr;
+
 #define exitSection(sectionName) gProfiler->ExitSection(sectionName, __FILE__, __FUNCTION__, __LINE__)
 #define enterSection(sectionName) gProfiler->EnterSection(sectionName)
+//^^using macros to call the global profile, so that i can grab line numb, file name, and function name^^
 
 TimeRecordStart::~TimeRecordStart()
 {
@@ -65,17 +68,6 @@ Profiler::~Profiler(){
     stats.clear();
 }
 
-void Profiler::ReportSectionTime(char const* sectionName, double elapsedTime)
-{
-    std::cout << "called ReportSectionTime" << std::endl;
-
-}
-void Profiler::calculateStats()
-{
-
-    std::cout << "called calculateStats" << std::endl;
-    
-}
 
 void Profiler::EnterSection(char const* sectionName)
 {
