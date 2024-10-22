@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include <vector>
 #include <map>
+#include <fstream>
 using namespace std;
 
 Profiler* Profiler::gProfiler = nullptr;
@@ -79,7 +80,6 @@ void Profiler::EnterSection(char const* sectionName)
     double secondsAtStart = GetCurrentTimeSecond();
     startTimes.emplace_back(sectionName, secondsAtStart);
 }
-
 void Profiler::ExitSection(char const* sectionName)
 {
     double secondsAtStop = GetCurrentTimeSecond(); // Get the current time when exiting the section
@@ -157,6 +157,8 @@ void Profiler::ExitSection(char const* sectionName)
     // }
     // }
 }
+
+
 void Profiler::printStats()
 {
     cout<< "Profiler Stats:" << endl;
@@ -166,6 +168,29 @@ void Profiler::printStats()
         <<", File Name: "<<stat.second->fileName<<", Function Name: " <<stat.second->functionName<<", Line Number: "<<stat.second->lineNumber<<std::endl;
     }
 }
+void Profiler::printStatsToCSV(const char* fileName)
+{
+    ofstream ProfilerStats("ProfilerStats.csv"); //creates output CSV
+    if(ProfilerStats.is_open())
+    {
+        ProfilerStats << "Section, Count, Total Time, Min Time, Max Time, Avg Time, File Name, Function Name, Line Number\n";
+        for( auto& stat : stats)
+        {
+            ProfilerStats << stat.first << ", " << stat.second->count << ", " << stat.second->totalTime << ", " << stat.second->minTime << ", " << stat.second->maxTime << ", " << stat.second->totalTime/stat.second->count << ", " << stat.second->fileName << ", " << stat.second->functionName << ", " << stat.second->lineNumber << "\n";
+        }
+        ProfilerStats.close();
+    }
+    else
+    {
+        cout << "Unable to open file";
+    }
+
+}
+void Profiler::printStatsToJSON(const char* fileName)
+{
+    // Implement JSON output if needed
+}
+
 
 vector<TimeRecordStart> Profiler::getStartTimes(){
     return startTimes;

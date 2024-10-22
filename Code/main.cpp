@@ -28,8 +28,9 @@ for(int i = 0; i < 1000; i++){
                 swapped = true;
             }
             gProfiler->ExitSection("InnerLoop");
-            gProfiler->ExitSection("interweaveTest");
+            
         }
+        gProfiler->ExitSection("interweaveTest");
         n--;  // Reduce the range to optimize since the largest element gets placed at the end in each pass
     } while (swapped); 
     
@@ -37,37 +38,17 @@ for(int i = 0; i < 1000; i++){
 
 };
 void test2(){
-    
+
 }
 
 int main()
 {
 
-    // Profiler* p = new Profiler();
-    // p->EnterSection("mTest");
-    // p->EnterSection("interweaveTest");
-    // vector<int> test;
-    // for(int i = 0; i < 5; i++){
-    //     p->EnterSection("iTest");
-    //     test.push_back(i);
-    //     for(int j = 0; j <3; j++){
-    //         p->EnterSection("jTest");
-    //         test.push_back(j);
-    //         p->ExitSection("jTest");
-    //     }
-    //     p->ExitSection("interweaveTest");
-    //     p->ExitSection("iTest");
-    // }
-    
-    // p->ExitSection("mTest");
-    // p->printStats();
-    // delete p;
     for(int i = 0; i < 10; i++){
         test1();
     }
     gProfiler->printStats();
-
-
+    gProfiler->printStatsToCSV("ProfilerStats.csv");
 
 
     return 0;

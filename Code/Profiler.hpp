@@ -56,6 +56,7 @@ class Profiler{
         void calculateStats();
         void printStats();
         void printStatsToCSV(const char* fileName);
+        void printStatsToJSON(const char* fileName);
         vector<TimeRecordStart> getStartTimes();
         vector<TimeRecordStop> getElapsedTimes();
         map<char const*, ProfilerStats*> getStats();
