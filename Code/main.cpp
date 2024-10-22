@@ -67,8 +67,8 @@ int main()
 test1(); //efficient bubble sort
 test2(); //ineffeicient bubble sort
     gProfiler->printStats();
-    //gProfiler->printStatsToCSV("ProfilerStats.csv");
-
+    gProfiler->printStatsToCSV("ProfilerStats.csv");
+    gProfiler->printStatsToJSON("ProfilerStats.json");
 
     return 0;
 }

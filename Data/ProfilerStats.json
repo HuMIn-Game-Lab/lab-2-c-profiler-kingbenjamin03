@@ -1,0 +1,68 @@
+[
+    {
+        "Section": "interweaveTest",
+        "Count": 1,
+        "Total Time": 0.001353875,
+        "Min Time": 0.001353875,
+        "Max Time": 0.001353875,
+        "Avg Time": 0.001353875,
+        "File Name": "./Code/Profiler.cpp",
+        "Function Name": "ProfilerStats",
+        "Line Number": 49
+    },
+    {
+        "Section": "BubbleSort1",
+        "Count": 1,
+        "Total Time": 0.334265333,
+        "Min Time": 0.334265333,
+        "Max Time": 0.334265333,
+        "Avg Time": 0.334265333,
+        "File Name": "./Code/Profiler.cpp",
+        "Function Name": "ProfilerStats",
+        "Line Number": 49
+    },
+    {
+        "Section": "InnerLoop",
+        "Count": 498324,
+        "Total Time": 0.04110058700000299,
+        "Min Time": 4.0999999950663835e-08,
+        "Max Time": 9.458000000003852e-06,
+        "Avg Time": 8.247763904608847e-08,
+        "File Name": "./Code/Profiler.cpp",
+        "Function Name": "ProfilerStats",
+        "Line Number": 49
+    },
+    {
+        "Section": "interweaveTest2",
+        "Count": 1,
+        "Total Time": 0.0007163330000000134,
+        "Min Time": 0.0007163330000000134,
+        "Max Time": 0.0007163330000000134,
+        "Avg Time": 0.0007163330000000134,
+        "File Name": "./Code/Profiler.cpp",
+        "Function Name": "ProfilerStats",
+        "Line Number": 49
+    },
+    {
+        "Section": "BubbleSort2",
+        "Count": 1,
+        "Total Time": 0.7488750829999999,
+        "Min Time": 0.7488750829999999,
+        "Max Time": 0.7488750829999999,
+        "Avg Time": 0.7488750829999999,
+        "File Name": "./Code/Profiler.cpp",
+        "Function Name": "ProfilerStats",
+        "Line Number": 49
+    },
+    {
+        "Section": "InnerLoop2",
+        "Count": 999000,
+        "Total Time": 0.07533293199999086,
+        "Min Time": 4.099999983964153e-08,
+        "Max Time": 8.250000000042945e-06,
+        "Avg Time": 7.540834034033119e-08,
+        "File Name": "./Code/Profiler.cpp",
+        "Function Name": "ProfilerStats",
+        "Line Number": 49
+    }
+]

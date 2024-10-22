@@ -6,8 +6,9 @@
 #include <map>
 #include <fstream>
 #include <iomanip>
+#include "json.hpp"
 using namespace std;
-
+using namespace nlohmann;
 Profiler* Profiler::gProfiler = nullptr;
 
 
@@ -176,7 +177,28 @@ void Profiler::printStatsToCSV(const char* fileName)
 }
 void Profiler::printStatsToJSON(const char* fileName)
 {
-    // Implement JSON output if needed
+    
+    ordered_json ProfilerStatsJson;
+
+    for( auto& stat : stats)
+    {
+        ordered_json sectionJson;
+        sectionJson["Section"] = stat.first;
+        sectionJson["Count"] = stat.second->count;
+        sectionJson["Total Time"] = stat.second->totalTime;
+        sectionJson["Min Time"] = stat.second->minTime;
+        sectionJson["Max Time"] = stat.second->maxTime;
+        sectionJson["Avg Time"] = stat.second->totalTime/stat.second->count;
+        sectionJson["File Name"] = stat.second->fileName;
+        sectionJson["Function Name"] = stat.second->functionName;
+        sectionJson["Line Number"] = stat.second->lineNumber;
+        
+        ProfilerStatsJson.push_back(sectionJson); // Add the section JSON to the main JSON array
+    }
+
+    ofstream file("Data/ProfilerStats.json");
+    file<<ProfilerStatsJson.dump(4); 
+    file.close();
 }
 
 
