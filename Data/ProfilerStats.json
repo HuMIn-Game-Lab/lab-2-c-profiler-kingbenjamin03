@@ -2,10 +2,21 @@
     {
         "Section": "interweaveTest",
         "Count": 1,
-        "Total Time": 0.001353875,
-        "Min Time": 0.001353875,
-        "Max Time": 0.001353875,
-        "Avg Time": 0.001353875,
+        "Total Time": 0.000680292,
+        "Min Time": 0.000680292,
+        "Max Time": 0.000680292,
+        "Avg Time": 0.000680292,
+        "File Name": "./Code/Profiler.cpp",
+        "Function Name": "ProfilerStats",
+        "Line Number": 49
+    },
+    {
+        "Section": "Array1",
+        "Count": 1000,
+        "Total Time": 0.00014643600000000114,
+        "Min Time": 4.0999999999995033e-08,
+        "Max Time": 1.4875000000000023e-05,
+        "Avg Time": 1.4643600000000114e-07,
         "File Name": "./Code/Profiler.cpp",
         "Function Name": "ProfilerStats",
         "Line Number": 49
@@ -13,10 +24,10 @@
     {
         "Section": "BubbleSort1",
         "Count": 1,
-        "Total Time": 0.334265333,
-        "Min Time": 0.334265333,
-        "Max Time": 0.334265333,
-        "Avg Time": 0.334265333,
+        "Total Time": 0.3568635,
+        "Min Time": 0.3568635,
+        "Max Time": 0.3568635,
+        "Avg Time": 0.3568635,
         "File Name": "./Code/Profiler.cpp",
         "Function Name": "ProfilerStats",
         "Line Number": 49
@@ -24,10 +35,10 @@
     {
         "Section": "InnerLoop",
         "Count": 498324,
-        "Total Time": 0.04110058700000299,
+        "Total Time": 0.04145224999999966,
         "Min Time": 4.0999999950663835e-08,
-        "Max Time": 9.458000000003852e-06,
-        "Avg Time": 8.247763904608847e-08,
+        "Max Time": 1.0749999999948301e-05,
+        "Avg Time": 8.318333052391549e-08,
         "File Name": "./Code/Profiler.cpp",
         "Function Name": "ProfilerStats",
         "Line Number": 49
@@ -35,10 +46,21 @@
     {
         "Section": "interweaveTest2",
         "Count": 1,
-        "Total Time": 0.0007163330000000134,
-        "Min Time": 0.0007163330000000134,
-        "Max Time": 0.0007163330000000134,
-        "Avg Time": 0.0007163330000000134,
+        "Total Time": 0.0007696670000000294,
+        "Min Time": 0.0007696670000000294,
+        "Max Time": 0.0007696670000000294,
+        "Avg Time": 0.0007696670000000294,
+        "File Name": "./Code/Profiler.cpp",
+        "Function Name": "ProfilerStats",
+        "Line Number": 49
+    },
+    {
+        "Section": "Array2",
+        "Count": 1000,
+        "Total Time": 0.00011600999999822337,
+        "Min Time": 4.0999999950663835e-08,
+        "Max Time": 9.749999999975056e-06,
+        "Avg Time": 1.1600999999822337e-07,
         "File Name": "./Code/Profiler.cpp",
         "Function Name": "ProfilerStats",
         "Line Number": 49
@@ -46,10 +68,10 @@
     {
         "Section": "BubbleSort2",
         "Count": 1,
-        "Total Time": 0.7488750829999999,
-        "Min Time": 0.7488750829999999,
-        "Max Time": 0.7488750829999999,
-        "Avg Time": 0.7488750829999999,
+        "Total Time": 0.7961706250000001,
+        "Min Time": 0.7961706250000001,
+        "Max Time": 0.7961706250000001,
+        "Avg Time": 0.7961706250000001,
         "File Name": "./Code/Profiler.cpp",
         "Function Name": "ProfilerStats",
         "Line Number": 49
@@ -57,10 +79,10 @@
     {
         "Section": "InnerLoop2",
         "Count": 999000,
-        "Total Time": 0.07533293199999086,
+        "Total Time": 0.07567617600008075,
         "Min Time": 4.099999983964153e-08,
-        "Max Time": 8.250000000042945e-06,
-        "Avg Time": 7.540834034033119e-08,
+        "Max Time": 1.64169999999908e-05,
+        "Avg Time": 7.575192792800876e-08,
         "File Name": "./Code/Profiler.cpp",
         "Function Name": "ProfilerStats",
         "Line Number": 49

@@ -11,7 +11,9 @@ void test1(){
 vector<int> unsortedVector;
 gProfiler->EnterSection("interweaveTest");
 for(int i = 0; i < 1000; i++){
+    gProfiler->EnterSection("Array1");
     unsortedVector.push_back(rand() % 1000);
+    gProfiler->ExitSection("Array1");
 }
     bool swapped;
     int n = unsortedVector.size();
@@ -41,9 +43,14 @@ void test2(){
 gProfiler->EnterSection("interweaveTest2");
 
     vector<int> unsortedVector;
+
     for(int i = 0; i < 1000; i++){
+        gProfiler->EnterSection("Array2");
         unsortedVector.push_back(rand() % 1000);
+        gProfiler->ExitSection("Array2");
     }
+    
+    
     gProfiler->EnterSection("BubbleSort2");
     int n = unsortedVector.size();
         for (int i = 0; i < n; i++) {  // Outer loop
