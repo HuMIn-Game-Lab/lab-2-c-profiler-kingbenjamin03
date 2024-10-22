@@ -4,6 +4,9 @@
 #include <map>
 using namespace std;
 
+#define exitSection(sectionName) gProfiler->ExitSection(sectionName, __FILE__, __FUNCTION__, __LINE__)
+#define enterSection(sectionName) gProfiler->EnterSection(sectionName)
+
 class TimeRecordStart{
     public:
             TimeRecordStart(const char* sectionName, double secondsAtStart)
@@ -32,7 +35,7 @@ class TimeRecordStop{
 
 class ProfilerStats{
     public:
-        ProfilerStats(char const* sectionName);
+        ProfilerStats(char const* sectionName, const char* fileName, const char* functionName, int lineNumber);
         ~ProfilerStats();
 
         char const* sectionName;
@@ -52,7 +55,7 @@ class Profiler{
         ~Profiler();
 
         void EnterSection(char const* sectionName);
-        void ExitSection(char const* sectionName);
+        void ExitSection(char const* sectionName, const char* file, const char* function, int line);
         void calculateStats();
         void printStats();
         void printStatsToCSV(const char* fileName);

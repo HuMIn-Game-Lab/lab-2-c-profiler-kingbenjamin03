@@ -10,7 +10,8 @@
 using namespace std;
 using namespace nlohmann;
 Profiler* Profiler::gProfiler = nullptr;
-
+#define exitSection(sectionName) gProfiler->ExitSection(sectionName, __FILE__, __FUNCTION__, __LINE__)
+#define enterSection(sectionName) gProfiler->EnterSection(sectionName)
 
 TimeRecordStart::~TimeRecordStart()
 {
@@ -35,7 +36,7 @@ TimeRecordStop::TimeRecordStop(char const* sectionName, double elapsedTime, int 
 TimeRecordStop::~TimeRecordStop(){}
 
 
-ProfilerStats::ProfilerStats(char const* sectionName)
+ProfilerStats::ProfilerStats(char const* sectionName, const char* fileName, const char* functionName, int lineNumber)
 {
     //std::cout << "ProfilerStats constructor" << std::endl;
     this->sectionName = sectionName;
@@ -44,9 +45,9 @@ ProfilerStats::ProfilerStats(char const* sectionName)
     minTime = DBL_MAX;
     maxTime = 0;
     avgTime = 0;
-    fileName = __FILE__;
-    functionName = __FUNCTION__;
-    lineNumber = __LINE__;
+    this->fileName = fileName;
+    this->functionName = functionName;
+    this->lineNumber = lineNumber;
 }
 
 
@@ -82,7 +83,7 @@ void Profiler::EnterSection(char const* sectionName)
     double secondsAtStart = GetCurrentTimeSecond();
     startTimes.emplace_back(sectionName, secondsAtStart);
 }
-void Profiler::ExitSection(char const* sectionName)
+void Profiler::ExitSection(char const* sectionName, char const* file, char const* function, int line) 
 {
     double secondsAtStop = GetCurrentTimeSecond(); // Get the current time when exiting the section
     for(int i = startTimes.size()-1; i>=0; i--)
@@ -98,7 +99,7 @@ void Profiler::ExitSection(char const* sectionName)
 
             if(stats.find(sectionName) == stats.end()) //checks to see if section already is in the map, if not it adds it
             {
-                stats[sectionName] = new ProfilerStats(sectionName);
+                stats[sectionName] = new ProfilerStats(sectionName,file, function, line);
                 stats[sectionName]->totalTime = elapsedTime;
                 stats[sectionName]->count = 1;
                 stats[sectionName]->minTime = elapsedTime;

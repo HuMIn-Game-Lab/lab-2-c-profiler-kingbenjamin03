@@ -1,9 +1,9 @@
 Section, Count, Total Time, Min Time, Max Time, Avg Time, File Name, Function Name, Line Number
-interweaveTest, 1, 0.000680292, 0.000680292, 0.000680292, 0.000680292, ./Code/Profiler.cpp, ProfilerStats, 49
-Array1, 1000, 0.000146436, 4.1e-08, 1.4875e-05, 1.46436e-07, ./Code/Profiler.cpp, ProfilerStats, 49
-BubbleSort1, 1, 0.356864, 0.356864, 0.356864, 0.356864, ./Code/Profiler.cpp, ProfilerStats, 49
-InnerLoop, 498324, 0.0414522, 4.1e-08, 1.075e-05, 8.31833e-08, ./Code/Profiler.cpp, ProfilerStats, 49
-interweaveTest2, 1, 0.000769667, 0.000769667, 0.000769667, 0.000769667, ./Code/Profiler.cpp, ProfilerStats, 49
-Array2, 1000, 0.00011601, 4.1e-08, 9.75e-06, 1.1601e-07, ./Code/Profiler.cpp, ProfilerStats, 49
-BubbleSort2, 1, 0.796171, 0.796171, 0.796171, 0.796171, ./Code/Profiler.cpp, ProfilerStats, 49
-InnerLoop2, 999000, 0.0756762, 4.1e-08, 1.6417e-05, 7.57519e-08, ./Code/Profiler.cpp, ProfilerStats, 49
+interweaveTest, 1, 0.0007045, 0.0007045, 0.0007045, 0.0007045, ./Code/main.cpp, test1, 35
+Array1, 1000, 0.000106545, 4.1e-08, 6.25e-06, 1.06545e-07, ./Code/main.cpp, test1, 16
+BubbleSort1, 1, 0.354095, 0.354095, 0.354095, 0.354095, ./Code/main.cpp, test1, 39
+InnerLoop, 498324, 0.0408064, 4.1e-08, 2.4833e-05, 8.18872e-08, ./Code/main.cpp, test1, 32
+interweaveTest2, 1, 0.000790625, 0.000790625, 0.000790625, 0.000790625, ./Code/main.cpp, test2, 65
+Array2, 1000, 0.000112687, 4.1e-08, 9.416e-06, 1.12687e-07, ./Code/main.cpp, test2, 50
+BubbleSort2, 1, 0.811728, 0.811728, 0.811728, 0.811728, ./Code/main.cpp, test2, 68
+InnerLoop2, 999000, 0.0762168, 4.1e-08, 5.0417e-05, 7.62931e-08, ./Code/main.cpp, test2, 63
