@@ -124,12 +124,36 @@ void Profiler::ExitSection(char const* sectionName)
 
 void Profiler::printStats()
 {
-    cout<< "Profiler Stats:" << endl;
-    for( auto& stat : stats)
-    {
-        std::cout << "Section: " << stat.first << ", Count: " << stat.second->count << ", Total Time: " << stat.second->totalTime<<", Min Time: "<<stat.second->minTime<<", Max Time: "<<stat.second->maxTime<<", Avg Time: "<<stat.second->totalTime/stat.second->count
-        <<", File Name: "<<stat.second->fileName<<", Function Name: " <<stat.second->functionName<<", Line Number: "<<stat.second->lineNumber<<std::endl;
+        std::cout << std::left << std::setw(20) << "Section Name" 
+              << std::setw(18) << "Count" 
+              << std::setw(18) << "Total Time"
+              << std::setw(18) << "Min Time"
+              << std::setw(18) << "Max Time"
+              << std::setw(18) << "Avg Time"
+              << std::endl;
+            std::cout << std::string(80, '-') << std::endl;
+    for( auto& stat : stats){
+            std::cout << std::left << std::setw(20) << stat.first
+              << std::setw(18) << stat.second->count 
+              << std::setw(18) << stat.second->totalTime
+              << std::setw(18) << stat.second->minTime 
+              << std::setw(18) << stat.second->maxTime 
+              << std::setw(18) << stat.second->totalTime/stat.second->count
+              << std::endl;
     }
+
+
+
+
+
+
+
+    // cout<< "Profiler Stats:" << endl;
+    // for( auto& stat : stats)
+    // {
+    //     std::cout << "Section: " << stat.first << ", Count: " << stat.second->count << ", Total Time: " << stat.second->totalTime<<", Min Time: "<<stat.second->minTime<<", Max Time: "<<stat.second->maxTime<<", Avg Time: "<<stat.second->totalTime/stat.second->count
+    //     <<", File Name: "<<stat.second->fileName<<", Function Name: " <<stat.second->functionName<<", Line Number: "<<stat.second->lineNumber<<std::endl<<endl;
+    // }
 }
 void Profiler::printStatsToCSV(const char* fileName)
 {

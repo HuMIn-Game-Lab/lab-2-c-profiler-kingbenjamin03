@@ -1,7 +1,7 @@
 Section, Count, Total Time, Min Time, Max Time, Avg Time, File Name, Function Name, Line Number
-interweaveTest, 1, 0.00227312, 0.00227312, 0.00227312, 0.00227312, ./Code/Profiler.cpp, ProfilerStats, 47
-Efficient BubbleSort, 1, 0.33153, 0.33153, 0.33153, 0.33153, ./Code/Profiler.cpp, ProfilerStats, 47
-InnerLoop, 498324, 0.0404809, 4.1e-08, 2.4625e-05, 8.12341e-08, ./Code/Profiler.cpp, ProfilerStats, 47
-interweaveTest2, 1, 0.00073425, 0.00073425, 0.00073425, 0.00073425, ./Code/Profiler.cpp, ProfilerStats, 47
-Inefficient BubbleSort, 1, 0.753236, 0.753236, 0.753236, 0.753236, ./Code/Profiler.cpp, ProfilerStats, 47
-InnerLoop2, 999000, 0.0748945, 4.1e-08, 2.4042e-05, 7.49695e-08, ./Code/Profiler.cpp, ProfilerStats, 47
+interweaveTest, 1, 0.00102075, 0.00102075, 0.00102075, 0.00102075, ./Code/Profiler.cpp, ProfilerStats, 47
+Efficient BubbleSort, 1, 0.332045, 0.332045, 0.332045, 0.332045, ./Code/Profiler.cpp, ProfilerStats, 47
+InnerLoop, 498324, 0.0411224, 4.1e-08, 1.1417e-05, 8.25214e-08, ./Code/Profiler.cpp, ProfilerStats, 47
+interweaveTest2, 1, 0.00071125, 0.00071125, 0.00071125, 0.00071125, ./Code/Profiler.cpp, ProfilerStats, 47
+Inefficient BubbleSort, 1, 0.751118, 0.751118, 0.751118, 0.751118, ./Code/Profiler.cpp, ProfilerStats, 47
+InnerLoop2, 999000, 0.0749999, 4.1e-08, 1.8042e-05, 7.5075e-08, ./Code/Profiler.cpp, ProfilerStats, 47
