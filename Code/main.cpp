@@ -9,7 +9,7 @@ Profiler* gProfiler = new Profiler();
 void test1(){
 
 vector<int> unsortedVector;
-gProfiler->EnterSection("intervweaveTest");
+gProfiler->EnterSection("interweaveTest");
 for(int i = 0; i < 1000; i++){
     unsortedVector.push_back(rand() % 1000);
 }
@@ -28,10 +28,11 @@ for(int i = 0; i < 1000; i++){
                 swapped = true;
             }
             gProfiler->ExitSection("InnerLoop");
+            gProfiler->ExitSection("interweaveTest");
         }
         n--;  // Reduce the range to optimize since the largest element gets placed at the end in each pass
     } while (swapped); 
-    gProfiler->ExitSection("interweaveTest");
+    
     gProfiler->ExitSection("BubbleSort");
 
 };
