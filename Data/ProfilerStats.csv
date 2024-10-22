@@ -1,10 +1,10 @@
 Section, Count, Total Time, Min Time, Max Time, Avg Time, File Name, Function Name, Line Number
-interweaveTest, 1, 0.00148917, 0.00148917, 0.00148917, 0.00148917, ./Code/main.cpp, test1, 35
-Array1, 1000, 0.000232524, 1.25e-07, 1.3292e-05, 2.32524e-07, ./Code/main.cpp, test1, 16
-BubbleSort1, 1, 0.351004, 0.351004, 0.351004, 0.351004, ./Code/main.cpp, test1, 39
-InnerLoop, 498324, 0.0409438, 4.1e-08, 1.5417e-05, 8.21631e-08, ./Code/main.cpp, test1, 32
-interweaveTest2, 1, 0.000802125, 0.000802125, 0.000802125, 0.000802125, ./Code/main.cpp, test2, 65
-Array2, 1000, 0.000119387, 4.1e-08, 1.15e-05, 1.19387e-07, ./Code/main.cpp, test2, 50
-BubbleSort2, 1, 0.811611, 0.811611, 0.811611, 0.811611, ./Code/main.cpp, test2, 68
-InnerLoop2, 999000, 0.0787465, 4.1e-08, 4.1666e-05, 7.88254e-08, ./Code/main.cpp, test2, 63
-Test3, 10, 1.04131, 0.10023, 0.105772, 0.104131, ./Code/main.cpp, test3, 75
+interweaveTest, 1, 0.000719792, 0.000719792, 0.000719792, 0.000719792, ./Code/main.cpp, test1, 35
+Array1, 1000, 0.000113837, 4.1e-08, 6.166e-06, 1.13837e-07, ./Code/main.cpp, test1, 16
+BubbleSort1, 1, 0.378812, 0.378812, 0.378812, 0.378812, ./Code/main.cpp, test1, 39
+InnerLoop, 498324, 0.0450723, 4.1e-08, 1.625e-05, 9.04478e-08, ./Code/main.cpp, test1, 32
+interweaveTest2, 1, 0.000916458, 0.000916458, 0.000916458, 0.000916458, ./Code/main.cpp, test2, 65
+Array2, 1000, 0.000120274, 4.2e-08, 8.417e-06, 1.20274e-07, ./Code/main.cpp, test2, 50
+BubbleSort2, 1, 0.948432, 0.948432, 0.948432, 0.948432, ./Code/main.cpp, test2, 68
+InnerLoop2, 999000, 0.083497, 4.1e-08, 1.9125e-05, 8.35805e-08, ./Code/main.cpp, test2, 63
+Test3, 10, 1.04659, 0.103672, 0.105063, 0.104659, ./Code/main.cpp, test3, 75
