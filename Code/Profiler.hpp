@@ -56,7 +56,9 @@ class Profiler{
         void calculateStats();
         void printStats();
         void printStatsToCSV(const char* fileName);
-
+        vector<TimeRecordStart> getStartTimes();
+        vector<TimeRecordStop> getElapsedTimes();
+        map<char const*, ProfilerStats*> getStats();
         static Profiler* gProfiler;
 
     private:

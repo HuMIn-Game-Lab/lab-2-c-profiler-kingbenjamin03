@@ -55,7 +55,7 @@ Profiler::Profiler(){
     //cout<<"Profiler constructor"<<endl;
 }
 Profiler::~Profiler(){
-    cout<<"Profiler destructor"<<endl;
+    //cout<<"Profiler destructor"<<endl;
     startTimes.clear();
     elapsedTimes.clear();
     stats.clear();
@@ -75,58 +75,87 @@ void Profiler::calculateStats()
 
 void Profiler::EnterSection(char const* sectionName)
 {
+   //cout << "Entering section: " << sectionName << endl;
     double secondsAtStart = GetCurrentTimeSecond();
     startTimes.emplace_back(sectionName, secondsAtStart);
 }
 
 void Profiler::ExitSection(char const* sectionName)
 {
+    double secondsAtStop = GetCurrentTimeSecond(); // Get the current time when exiting the section
+    for(int i = startTimes.size()-1; i>=0; i--)
+    {
+        if(startTimes.at(i).sectionName == sectionName)
+        {
+            TimeRecordStart const& currentSection = startTimes.at(i);
+            startTimes.erase(startTimes.begin() + i); // Remove the section from the start times vector
+            double elapsedTime  = secondsAtStop - currentSection.secondsAtStart;
 
-    double secondsAtStop = GetCurrentTimeSecond();
+            TimeRecordStop stop = TimeRecordStop(sectionName, elapsedTime);
+            elapsedTimes.push_back(stop);
 
-    //check to make sure section names are the same
-    if (std::string(sectionName) != startTimes.back().sectionName) {
-            std::cerr << "Error: Mismatched section names. Expected: " 
-                      << startTimes.back().sectionName << ", but got: " 
-                      << sectionName << std::endl;
-            return;
+            if(stats.find(sectionName) == stats.end()) //checks to see if section already is in the map, if not it adds it
+            {
+                stats[sectionName] = new ProfilerStats(sectionName);
+                stats[sectionName]->totalTime = elapsedTime;
+                stats[sectionName]->count = 1;
+                stats[sectionName]->minTime = elapsedTime;
+                stats[sectionName]->maxTime = elapsedTime;
+
+            }
+            else{
+                stats[sectionName]->count++;
+                stats[sectionName]->totalTime += elapsedTime;
+                if(stats[sectionName]->minTime > elapsedTime || stats[sectionName]->minTime == 0)
+                {
+                    stats[sectionName]->minTime = elapsedTime;
+                }
+                if(stats[sectionName]->maxTime < elapsedTime)
+                {
+                    stats[sectionName]->maxTime = elapsedTime;
+                }
+            }
+            return; // Exit the function after processing the section
         }
+    }
+    //cout<<sectionName<<" Not Found."<<endl;
 
-    TimeRecordStart const& currentSection = startTimes.back(); //grabs the last section from vector of start times 
-    startTimes.pop_back(); //removes the last section from the vector
-    #if defined (DEBUG_PROFILER)
-        //verify the stack isnt empty
-        //verify current seciton matches name 
-    #endif
 
-    double elapsedTime  = secondsAtStop - currentSection.secondsAtStart;
+    // TimeRecordStart const& currentSection = startTimes.back(); //grabs the last section from vector of start times 
+    // startTimes.pop_back(); //removes the last section from the vector
+    // #if defined (DEBUG_PROFILER)
+    //     //verify the stack isnt empty
+    //     //verify current seciton matches name 
+    // #endif
 
-    TimeRecordStop stop = TimeRecordStop(sectionName, elapsedTime);
-    elapsedTimes.push_back(stop);
+    // double elapsedTime  = secondsAtStop - currentSection.secondsAtStart;
+
+    // TimeRecordStop stop = TimeRecordStop(sectionName, elapsedTime);
+    // elapsedTimes.push_back(stop);
 
 
     
-    if(stats.find(sectionName) == stats.end()) //checks to see if section already is in the map, if not it adds it
-    {
-        stats[sectionName] = new ProfilerStats(sectionName);
-        stats[sectionName]->totalTime = elapsedTime;
-        stats[sectionName]->count = 1;
-        stats[sectionName]->minTime = elapsedTime;
-        stats[sectionName]->maxTime = elapsedTime;
+    // if(stats.find(sectionName) == stats.end()) //checks to see if section already is in the map, if not it adds it
+    // {
+    //     stats[sectionName] = new ProfilerStats(sectionName);
+    //     stats[sectionName]->totalTime = elapsedTime;
+    //     stats[sectionName]->count = 1;
+    //     stats[sectionName]->minTime = elapsedTime;
+    //     stats[sectionName]->maxTime = elapsedTime;
 
-    }
-    else{
-    stats[sectionName]->count++;
-    stats[sectionName]->totalTime += elapsedTime;
-    if(stats[sectionName]->minTime > elapsedTime || stats[sectionName]->minTime == 0)
-    {
-        stats[sectionName]->minTime = elapsedTime;
-    }
-    if(stats[sectionName]->maxTime < elapsedTime)
-    {
-        stats[sectionName]->maxTime = elapsedTime;
-    }
-    }
+    // }
+    // else{
+    // stats[sectionName]->count++;
+    // stats[sectionName]->totalTime += elapsedTime;
+    // if(stats[sectionName]->minTime > elapsedTime || stats[sectionName]->minTime == 0)
+    // {
+    //     stats[sectionName]->minTime = elapsedTime;
+    // }
+    // if(stats[sectionName]->maxTime < elapsedTime)
+    // {
+    //     stats[sectionName]->maxTime = elapsedTime;
+    // }
+    // }
 }
 void Profiler::printStats()
 {
@@ -137,3 +166,13 @@ void Profiler::printStats()
         <<", File Name: "<<stat.second->fileName<<", Function Name: " <<stat.second->functionName<<", Line Number: "<<stat.second->lineNumber<<std::endl;
     }
 }
+
+vector<TimeRecordStart> Profiler::getStartTimes(){
+    return startTimes;
+};
+vector<TimeRecordStop> Profiler::getElapsedTimes(){
+    return elapsedTimes;
+};
+map<char const*, ProfilerStats*> Profiler::getStats(){
+    return stats;
+};
