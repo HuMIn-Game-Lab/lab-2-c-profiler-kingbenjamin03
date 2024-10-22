@@ -1,4 +1,0 @@
-Section, Count, Total Time, Min Time, Max Time, Avg Time, File Name, Function Name, Line Number
-interweaveTest, 10, 0.00672196, 0.000662083, 0.000725625, 0.000672196, ./Code/Profiler.cpp, ProfilerStats, 47
-BubbleSort, 10, 3.57598, 0.329179, 0.45713, 0.357598, ./Code/Profiler.cpp, ProfilerStats, 47
-InnerLoop, 4989078, 0.393739, 4.1e-08, 4.0584e-05, 7.89203e-08, ./Code/Profiler.cpp, ProfilerStats, 47

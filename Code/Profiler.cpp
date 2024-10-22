@@ -170,7 +170,7 @@ void Profiler::printStats()
 }
 void Profiler::printStatsToCSV(const char* fileName)
 {
-    ofstream ProfilerStats("ProfilerStats.csv"); //creates output CSV
+    ofstream ProfilerStats("Data/ProfilerStats.csv"); //creates output CSV
     if(ProfilerStats.is_open())
     {
         ProfilerStats << "Section, Count, Total Time, Min Time, Max Time, Avg Time, File Name, Function Name, Line Number\n";
