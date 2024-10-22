@@ -70,7 +70,7 @@ enterSection("interweaveTest2");
 void test3(){
     for(int i = 0; i<10; i++){
         enterSection("Test3");
-        cout<<i<<endl;
+        //cout<<i<<endl;
         this_thread::sleep_for(chrono::milliseconds(100));
         exitSection("Test3");
     }
