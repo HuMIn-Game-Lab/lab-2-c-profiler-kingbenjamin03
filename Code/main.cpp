@@ -87,6 +87,9 @@ void test4()
     else {
         exitSection("Test4.1");
     }
+    this_thread::sleep_for(chrono::milliseconds(500));
+    exitSection("Test4");
+    exitSection("Test4.1");
 }
 
 int main()

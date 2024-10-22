@@ -2,10 +2,10 @@
     {
         "Section": "interweaveTest",
         "Count": 1,
-        "Total Time": 0.0007354580000000001,
-        "Min Time": 0.0007354580000000001,
-        "Max Time": 0.0007354580000000001,
-        "Avg Time": 0.0007354580000000001,
+        "Total Time": 0.0007267080000000001,
+        "Min Time": 0.0007267080000000001,
+        "Max Time": 0.0007267080000000001,
+        "Avg Time": 0.0007267080000000001,
         "File Name": "./Code/main.cpp",
         "Function Name": "test1",
         "Line Number": 35
@@ -13,10 +13,10 @@
     {
         "Section": "Array1",
         "Count": 1000,
-        "Total Time": 0.00011482900000000025,
+        "Total Time": 0.00011694700000000029,
         "Min Time": 4.200000000001078e-08,
-        "Max Time": 6.334000000000038e-06,
-        "Avg Time": 1.1482900000000025e-07,
+        "Max Time": 6.208000000000006e-06,
+        "Avg Time": 1.1694700000000029e-07,
         "File Name": "./Code/main.cpp",
         "Function Name": "test1",
         "Line Number": 16
@@ -24,10 +24,10 @@
     {
         "Section": "BubbleSort1",
         "Count": 1,
-        "Total Time": 0.38138825,
-        "Min Time": 0.38138825,
-        "Max Time": 0.38138825,
-        "Avg Time": 0.38138825,
+        "Total Time": 0.3794495,
+        "Min Time": 0.3794495,
+        "Max Time": 0.3794495,
+        "Avg Time": 0.3794495,
         "File Name": "./Code/main.cpp",
         "Function Name": "test1",
         "Line Number": 39
@@ -35,10 +35,10 @@
     {
         "Section": "InnerLoop",
         "Count": 498324,
-        "Total Time": 0.045429204999997724,
+        "Total Time": 0.045239542000012144,
         "Min Time": 4.0999999950663835e-08,
-        "Max Time": 1.558400000001292e-05,
-        "Avg Time": 9.116399170017443e-08,
+        "Max Time": 1.3832999999963125e-05,
+        "Avg Time": 9.078338992304634e-08,
         "File Name": "./Code/main.cpp",
         "Function Name": "test1",
         "Line Number": 32
@@ -46,10 +46,10 @@
     {
         "Section": "interweaveTest2",
         "Count": 1,
-        "Total Time": 0.0009216249999999815,
-        "Min Time": 0.0009216249999999815,
-        "Max Time": 0.0009216249999999815,
-        "Avg Time": 0.0009216249999999815,
+        "Total Time": 0.0009169580000000233,
+        "Min Time": 0.0009169580000000233,
+        "Max Time": 0.0009169580000000233,
+        "Avg Time": 0.0009169580000000233,
         "File Name": "./Code/main.cpp",
         "Function Name": "test2",
         "Line Number": 65
@@ -57,10 +57,10 @@
     {
         "Section": "Array2",
         "Count": 1000,
-        "Total Time": 0.00012179499999986909,
+        "Total Time": 0.00012634700000219157,
         "Min Time": 4.1999999977893054e-08,
-        "Max Time": 7.709000000022392e-06,
-        "Avg Time": 1.217949999998691e-07,
+        "Max Time": 8.916999999997177e-06,
+        "Avg Time": 1.2634700000219158e-07,
         "File Name": "./Code/main.cpp",
         "Function Name": "test2",
         "Line Number": 50
@@ -68,10 +68,10 @@
     {
         "Section": "BubbleSort2",
         "Count": 1,
-        "Total Time": 0.964086958,
-        "Min Time": 0.964086958,
-        "Max Time": 0.964086958,
-        "Avg Time": 0.964086958,
+        "Total Time": 0.9464995829999999,
+        "Min Time": 0.9464995829999999,
+        "Max Time": 0.9464995829999999,
+        "Avg Time": 0.9464995829999999,
         "File Name": "./Code/main.cpp",
         "Function Name": "test2",
         "Line Number": 68
@@ -79,10 +79,10 @@
     {
         "Section": "InnerLoop2",
         "Count": 999000,
-        "Total Time": 0.08483445199990858,
+        "Total Time": 0.08407970100001638,
         "Min Time": 4.099999983964153e-08,
-        "Max Time": 4.416600000012316e-05,
-        "Avg Time": 8.491937137127986e-08,
+        "Max Time": 2.562500000014012e-05,
+        "Avg Time": 8.416386486488126e-08,
         "File Name": "./Code/main.cpp",
         "Function Name": "test2",
         "Line Number": 63
@@ -90,13 +90,24 @@
     {
         "Section": "Test3",
         "Count": 10,
-        "Total Time": 1.0366732069999989,
-        "Min Time": 0.10060749999999974,
-        "Max Time": 0.10629674999999983,
-        "Avg Time": 0.10366732069999988,
+        "Total Time": 1.0411719579999998,
+        "Min Time": 0.10095441699999963,
+        "Max Time": 0.10518483300000003,
+        "Avg Time": 0.10411719579999998,
         "File Name": "./Code/main.cpp",
         "Function Name": "test3",
         "Line Number": 75
+    },
+    {
+        "Section": "Test4",
+        "Count": 1,
+        "Total Time": 0.500321708,
+        "Min Time": 0.500321708,
+        "Max Time": 0.500321708,
+        "Avg Time": 0.500321708,
+        "File Name": "./Code/main.cpp",
+        "Function Name": "test4",
+        "Line Number": 91
     },
     {
         "Section": "Test4.1",
