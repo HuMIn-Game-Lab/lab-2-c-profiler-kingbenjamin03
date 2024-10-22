@@ -126,7 +126,7 @@ void Profiler::printStats()
               << std::setw(18) << "Max Time"
               << std::setw(18) << "Avg Time"
               << std::endl;
-            std::cout << std::string(80, '-') << std::endl;
+            std::cout << std::string(104, '-') << std::endl;
     for( auto& stat : stats){
             std::cout << std::left << std::setw(20) << stat.first
               << std::setw(18) << stat.second->count 
