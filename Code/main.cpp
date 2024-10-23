@@ -160,6 +160,9 @@ int main()
 for(int i = 0;i<1000; i++){
      test1(); //efficient bubble sort
      test2(); //ineffeicient bubble sort
+     //test3(); //test3 runs for 1 second
+     test4(); //test4 interweaving test
+     test5(); //DFS test
 }
 
  //test3(); //test3 runs for 1 second
