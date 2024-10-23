@@ -118,7 +118,7 @@ void DFS(int startVertex, const vector<int> adj[], int numVertices) {
     //cout << endl;
     
 }
-void selectionSort(vector<int> &arr) {
+void selectionSort1(vector<int> &arr) {
     int n = arr.size();
 
     for (int i = 0; i < n - 1; ++i) {
@@ -143,6 +143,26 @@ void selectionSort(vector<int> &arr) {
         swap(arr[i], arr[min_idx]);
     }
 }
+void selectionSort2(vector<int> &arr) {
+    int n = arr.size();
+
+    for (int i = 0; i < n - 1; ++i) {
+
+        int min_idx = i;
+
+        // Iterate through the entire array instead of just the unsorted portion
+        for (int j = 0; j < n; ++j) {  // Start from 0, inefficient
+            if (arr[j] < arr[min_idx]) {
+                min_idx = j; 
+            }
+        }
+
+        // Always perform the swap, even if it's unnecessary
+        swap(arr[i], arr[min_idx]);  // Always swap, inefficient
+    }
+}
+
+
 
 void test5(){
     int numVertices = 5;
@@ -188,12 +208,20 @@ void test6(){
     for(int i = 0; i < 1000; i++){
         unsortedVector.push_back(rand() % 1000);
     }
-    enterSection("SelectionSort");
-    selectionSort(unsortedVector);
-    exitSection("SelectionSort");
+    enterSection("SelectionSort1");
+    selectionSort1(unsortedVector);
+    exitSection("SelectionSort1");
 
 }
-
+void test7(){
+    vector<int> unsortedVector;
+    for(int i = 0; i < 1000; i++){
+        unsortedVector.push_back(rand() % 1000);
+    }
+    enterSection("SelectionSort2");
+    selectionSort2(unsortedVector);
+    exitSection("SelectionSort2");
+}
 int main()
 {
 for(int i = 0;i<1000; i++){
@@ -203,8 +231,9 @@ for(int i = 0;i<1000; i++){
      //test4(); //test4 interweaving test
      //test5(); //DFS test
      test6(); //selection sort test
+     test7(); //inefficient selection sort
 }
-sleepTest(); //sleep test
+sleepTest(); //sleep test has interweaving as well. not in loop becasue it would run for 2 seconds 1000 times which would take 33.33 minutes 
 
 PrintStats();
 PrintStatsToCSV("ProfilerStats.csv");

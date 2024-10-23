@@ -47,7 +47,6 @@ TimeRecordStop::~TimeRecordStop(){}
 
 ProfilerStats::ProfilerStats(char const* sectionName, const char* fileName, const char* functionName, int lineNumber)
 {
-    //std::cout << "ProfilerStats constructor" << std::endl;
     this->sectionName = sectionName;
     count = 1;
     totalTime = 0;
@@ -61,14 +60,11 @@ ProfilerStats::ProfilerStats(char const* sectionName, const char* fileName, cons
 
 
 Profiler::Profiler(){
-    //Profiler* gProfiler = nullptr;
     gProfiler = this;
     startTimes.reserve(100);
     elapsedTimes.reserve(1000000);
-    //cout<<"Profiler constructor"<<endl;
 }
 Profiler::~Profiler(){
-    //cout<<"Profiler destructor"<<endl;
     startTimes.clear();
     elapsedTimes.clear();
     stats.clear();
@@ -77,7 +73,6 @@ Profiler::~Profiler(){
 
 void Profiler::EnterSection(char const* sectionName)
 {
-   //cout << "Entering section: " << sectionName << endl;
     double secondsAtStart = GetCurrentTimeSecond();
     startTimes.emplace_back(sectionName, secondsAtStart);
 }
@@ -116,7 +111,7 @@ void Profiler::ExitSection(char const* sectionName, char const* file, char const
                     stats[sectionName]->maxTime = elapsedTime;
                 }
             }
-            return; // Exit the function after processing the section
+            return; // Exit the function 
         }
     }
    
@@ -142,19 +137,6 @@ void Profiler::printStats()
               << std::setw(18) << stat.second->totalTime/stat.second->count
               << std::endl;
     }
-
-
-
-
-
-
-
-    // cout<< "Profiler Stats:" << endl;
-    // for( auto& stat : stats)
-    // {
-    //     std::cout << "Section: " << stat.first << ", Count: " << stat.second->count << ", Total Time: " << stat.second->totalTime<<", Min Time: "<<stat.second->minTime<<", Max Time: "<<stat.second->maxTime<<", Avg Time: "<<stat.second->totalTime/stat.second->count
-    //     <<", File Name: "<<stat.second->fileName<<", Function Name: " <<stat.second->functionName<<", Line Number: "<<stat.second->lineNumber<<std::endl<<endl;
-    // }
 }
 void Profiler::printStatsToCSV(const char* fileName)
 {

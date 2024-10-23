@@ -68,8 +68,6 @@ class Profiler{
         static Profiler* gProfiler;
 
     private:
-        void ReportSectionTime(char const* sectionName, double elapsedTime);
-        void ReportSectionTime(char const* sectionName, double elapsedTime, int lineNumber, const char* fileName, const char* functionName);
         map<char const*, ProfilerStats*> stats;
         vector<TimeRecordStart> startTimes;
         vector<TimeRecordStop> elapsedTimes;
