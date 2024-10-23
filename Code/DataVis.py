@@ -44,3 +44,43 @@ for container in ax.containers:
 plt.tight_layout()
 plt.show()
 
+
+
+
+data.columns = data.columns.str.strip()
+
+# Extracting relevant columns
+sections = data['Section']
+total_time = data['Total Time']
+std_devs = data['Standard Deviation']
+
+# Create a Pandas DataFrame with the relevant data
+df = pd.DataFrame({
+    'Section': sections,
+    'Total Time': total_time,
+    'Standard Deviation': std_devs
+})
+
+# Create a stacked bar plot for Total Time and Standard Deviation
+plt.figure(figsize=(10, 6))
+
+# Plotting total time as the base
+plt.bar(df['Section'], df['Total Time'], label='Total Time', color='lightblue')
+
+# Overlaying standard deviation on top of total time
+plt.bar(df['Section'], df['Standard Deviation'], bottom=df['Total Time'], label='Standard Deviation', color='orange')
+
+# Adding titles and labels
+plt.title("Total Time with Standard Deviation on Top")
+plt.xlabel("Section")
+plt.ylabel("Time (seconds)")
+
+# Rotate x-axis labels for better readability
+plt.xticks(rotation=45, ha='right')
+
+# Adding a legend
+plt.legend()
+
+# Show the plot
+plt.tight_layout()
+plt.show()

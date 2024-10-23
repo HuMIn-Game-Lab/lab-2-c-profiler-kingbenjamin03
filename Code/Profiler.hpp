@@ -47,6 +47,7 @@ class ProfilerStats{
         double minTime;
         double maxTime;
         double avgTime;
+        double sumSquaredTime;
         const char* fileName;
         const char* functionName;
         int lineNumber;

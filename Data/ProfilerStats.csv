@@ -1,7 +1,7 @@
-Section, Count, Total Time, Min Time, Max Time, Avg Time, File Name, Function Name, Line Number
-BubbleSort1, 1000, 3.06734, 0.00296267, 0.00400137, 0.00306734, ./Code/main.cpp, test1, 40
-BubbleSort2, 1000, 4.33702, 0.00423942, 0.00539688, 0.00433702, ./Code/main.cpp, test2, 69
-SleepTestShort, 10, 2.03553, 0.200188, 0.205301, 0.203553, ./Code/main.cpp, sleepTest, 200
-SleepTestLong, 10, 4.07154, 0.402677, 0.410696, 0.407154, ./Code/main.cpp, sleepTest, 202
-SelectionSort1, 1000, 1.32385, 0.00130979, 0.00167983, 0.00132385, ./Code/main.cpp, test6, 213
-SelectionSort2, 1000, 2.56143, 0.00250092, 0.00336029, 0.00256143, ./Code/main.cpp, test7, 223
+Section, Count, Total Time, Min Time, Max Time, Avg Time, File Name, Function Name, Line Number, Standard Deviation
+BubbleSort1, 1000, 3.05165, 0.00294942, 0.00508017, 0.00305165, ./Code/main.cpp, test1, 40, 0.00305308
+BubbleSort2, 1000, 4.35537, 0.00424088, 0.00709104, 0.00435537, ./Code/main.cpp, test2, 69, 0.00435774
+SleepTestShort, 10, 2.03343, 0.200644, 0.205349, 0.203343, ./Code/main.cpp, sleepTest, 200, 0.20335
+SleepTestLong, 10, 4.06481, 0.401019, 0.410277, 0.406481, ./Code/main.cpp, sleepTest, 202, 0.406489
+SelectionSort1, 1000, 1.32297, 0.00130933, 0.00192592, 0.00132297, ./Code/main.cpp, test6, 213, 0.00132336
+SelectionSort2, 1000, 2.56075, 0.00250329, 0.00371087, 0.00256075, ./Code/main.cpp, test7, 223, 0.00256144

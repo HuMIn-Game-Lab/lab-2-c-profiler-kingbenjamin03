@@ -7,6 +7,7 @@
 #include <fstream>
 #include <iomanip>
 #include "json.hpp"
+#include <cmath>
 using namespace std;
 using namespace nlohmann;
 
@@ -97,6 +98,7 @@ void Profiler::ExitSection(char const* sectionName, char const* file, char const
                 stats[sectionName]->count = 1;
                 stats[sectionName]->minTime = elapsedTime;
                 stats[sectionName]->maxTime = elapsedTime;
+                stats[sectionName]->sumSquaredTime = elapsedTime * elapsedTime;
 
             }
             else{
@@ -110,6 +112,7 @@ void Profiler::ExitSection(char const* sectionName, char const* file, char const
                 {
                     stats[sectionName]->maxTime = elapsedTime;
                 }
+                stats[sectionName]->sumSquaredTime += elapsedTime * elapsedTime;
             }
             return; // Exit the function 
         }
@@ -126,15 +129,19 @@ void Profiler::printStats()
               << std::setw(18) << "Min Time"
               << std::setw(18) << "Max Time"
               << std::setw(18) << "Avg Time"
+              << std::setw(18) << "Standard Deviation"
               << std::endl;
-            std::cout << std::string(104, '-') << std::endl;
+            std::cout << std::string(130, '-') << std::endl;
     for( auto& stat : stats){
+            double variance = (stat.second->sumSquaredTime / stat.second->count) - (stat.second->avgTime * stat.second->avgTime);
+            stat.second->sumSquaredTime = sqrt(variance);
             std::cout << std::left << std::setw(20) << stat.first
               << std::setw(18) << stat.second->count 
               << std::setw(18) << stat.second->totalTime
               << std::setw(18) << stat.second->minTime 
               << std::setw(18) << stat.second->maxTime 
               << std::setw(18) << stat.second->totalTime/stat.second->count
+              <<std::setw(18)<<stat.second->sumSquaredTime
               << std::endl;
     }
 }
@@ -143,10 +150,10 @@ void Profiler::printStatsToCSV(const char* fileName)
     ofstream ProfilerStats("Data/ProfilerStats.csv"); //creates output CSV
     if(ProfilerStats.is_open())
     {
-        ProfilerStats << "Section, Count, Total Time, Min Time, Max Time, Avg Time, File Name, Function Name, Line Number\n";
+        ProfilerStats << "Section, Count, Total Time, Min Time, Max Time, Avg Time, File Name, Function Name, Line Number, Standard Deviation\n";
         for( auto& stat : stats)
         {
-            ProfilerStats << stat.first << ", " << stat.second->count << ", " << stat.second->totalTime << ", " << stat.second->minTime << ", " << stat.second->maxTime << ", " << stat.second->totalTime/stat.second->count << ", " << stat.second->fileName << ", " << stat.second->functionName << ", " << stat.second->lineNumber << "\n";
+            ProfilerStats << stat.first << ", " << stat.second->count << ", " << stat.second->totalTime << ", " << stat.second->minTime << ", " << stat.second->maxTime << ", " << stat.second->totalTime/stat.second->count << ", " << stat.second->fileName << ", " << stat.second->functionName << ", " << stat.second->lineNumber<<", "<<stat.second->sumSquaredTime << "\n";
         }
         ProfilerStats.close();
     }
@@ -173,7 +180,7 @@ void Profiler::printStatsToJSON(const char* fileName)
         sectionJson["File Name"] = stat.second->fileName;
         sectionJson["Function Name"] = stat.second->functionName;
         sectionJson["Line Number"] = stat.second->lineNumber;
-        
+        sectionJson["Standard Deviation"] = stat.second->sumSquaredTime;
         ProfilerStatsJson.push_back(sectionJson); // Add the section JSON to the main JSON array
     }
 
