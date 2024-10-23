@@ -157,9 +157,11 @@ void sleepTest()
 
 int main()
 {
+for(int i = 0;i<10000; i++){
+     test1(); //efficient bubble sort
+     test2(); //ineffeicient bubble sort
+}
 
- test1(); //efficient bubble sort
- test2(); //ineffeicient bubble sort
  //test3(); //test3 runs for 1 second
  //test4(); //test4 interweaving test
 //PrintStats();
