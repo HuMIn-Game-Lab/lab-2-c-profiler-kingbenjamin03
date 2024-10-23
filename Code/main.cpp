@@ -95,25 +95,55 @@ void test4()
 
 void DFSUtil(int vertex, vector<bool> &visited, const vector<int> adj[]) {
     // Mark the current vertex as visited and print it
+    enterSection("DFS Test");
     visited[vertex] = true;
     //cout << vertex << " ";
 
     // Recur for all adjacent vertices that have not been visited
     for (int adjVertex : adj[vertex]) {
-        enterSection("DFSUtil");
+       // enterSection("DFSUtil");
         if (!visited[adjVertex]) {
             DFSUtil(adjVertex, visited, adj);
         }
-        exitSection("DFSUtil");
+        //exitSection("DFSUtil");
+        exitSection("DFS Test");
     }
 }
 void DFS(int startVertex, const vector<int> adj[], int numVertices) {
     // Create a boolean array to mark visited vertices
+    
     vector<bool> visited(numVertices, false);
     //cout << "DFS Traversal starting from vertex " << startVertex << ": ";
     DFSUtil(startVertex, visited, adj);
     //cout << endl;
+    
 }
+void selectionSort(vector<int> &arr) {
+    int n = arr.size();
+
+    for (int i = 0; i < n - 1; ++i) {
+
+        // Assume the current position holds
+        // the minimum element
+        int min_idx = i;
+
+        // Iterate through the unsorted portion
+        // to find the actual minimum
+        for (int j = i + 1; j < n; ++j) {
+            if (arr[j] < arr[min_idx]) {
+
+                // Update min_idx if a smaller
+                // element is found
+                min_idx = j; 
+            }
+        }
+
+        // Move minimum element to its
+        // correct position
+        swap(arr[i], arr[min_idx]);
+    }
+}
+
 void test5(){
     int numVertices = 5;
 
@@ -136,24 +166,33 @@ void test5(){
     adj[4].push_back(1);
     adj[4].push_back(3);
 
-    enterSection("DFS Test");
+    
     // Perform DFS traversal starting from vertex 0
     DFS(0, adj, numVertices);
-    exitSection("DFS Test");
+    
 }
 void sleepTest()
 {
     for(int i = 0; i < 10; i++){
     enterSection("SleepTestShort");
     enterSection("SleepTestLong");
-    this_thread::sleep_for(chrono::milliseconds(100));
+    this_thread::sleep_for(chrono::milliseconds(200));
     exitSection("SleepTestShort");
-    this_thread::sleep_for(chrono::milliseconds(100));
+    this_thread::sleep_for(chrono::milliseconds(200));
     exitSection("SleepTestLong");
     }
 
 }
+void test6(){
+    vector<int> unsortedVector;
+    for(int i = 0; i < 1000; i++){
+        unsortedVector.push_back(rand() % 1000);
+    }
+    enterSection("SelectionSort");
+    selectionSort(unsortedVector);
+    exitSection("SelectionSort");
 
+}
 
 int main()
 {
@@ -161,21 +200,12 @@ for(int i = 0;i<1000; i++){
      test1(); //efficient bubble sort
      test2(); //ineffeicient bubble sort
      //test3(); //test3 runs for 1 second
-     test4(); //test4 interweaving test
-     test5(); //DFS test
+     //test4(); //test4 interweaving test
+     //test5(); //DFS test
+     test6(); //selection sort test
 }
+sleepTest(); //sleep test
 
- //test3(); //test3 runs for 1 second
- //test4(); //test4 interweaving test
-//PrintStats();
-//PrintStatsToCSV("ProfilerStats.csv");
-//PrintStatsToJSON("ProfilerStats.json");
-
-
-//test5(); //DFS test
-//PrintStats();
-//PrintStatsToCSV("ProfilerStats.csv");
-//sleepTest(); //sleep test
 PrintStats();
 PrintStatsToCSV("ProfilerStats.csv");
 

@@ -1,3 +1,6 @@
 Section, Count, Total Time, Min Time, Max Time, Avg Time, File Name, Function Name, Line Number
-BubbleSort1, 1000, 3.0603, 0.00294179, 0.00829667, 0.0030603, ./Code/main.cpp, test1, 40
-BubbleSort2, 1000, 4.34152, 0.00423296, 0.0092685, 0.00434152, ./Code/main.cpp, test2, 69
+BubbleSort1, 1000, 3.11706, 0.003, 0.00565333, 0.00311706, ./Code/main.cpp, test1, 40
+BubbleSort2, 1000, 4.36618, 0.00421683, 0.007095, 0.00436618, ./Code/main.cpp, test2, 69
+SleepTestShort, 10, 2.04103, 0.200451, 0.206302, 0.204103, ./Code/main.cpp, sleepTest, 180
+SleepTestLong, 10, 4.08511, 0.404793, 0.411771, 0.408511, ./Code/main.cpp, sleepTest, 182
+SelectionSort, 1000, 1.33149, 0.00131038, 0.00200267, 0.00133149, ./Code/main.cpp, test6, 193
